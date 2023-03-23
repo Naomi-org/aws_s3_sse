@@ -1,10 +1,7 @@
 name: s3_workflow
 on:
   workflow_dispatch
-/*
-push:
-  branches: ["main"]
-  */
+
 env:
   AWS_ACCESS_KEY_ID = ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_ SECRETE_ACCESS_KEY = ${{secrets.AWS_SECRET_ACCESS_KEY}}
