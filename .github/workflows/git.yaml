@@ -3,14 +3,14 @@ on:
   workflow_dispatch
 
 env:
-  AWS_ACCESS_KEY_ID = ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_ SECRETE_ACCESS_KEY = ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
 jobs:
-  build_s3
+  build_s3:
     runs-on: ubuntu-latest
     steps:
-      - name:  checkout
+      - name: checkout
         uses: actions/checkout@v1
       - name: setup terraform
         uses: hashicorp/setup-terraform@v2
@@ -18,14 +18,13 @@ jobs:
           terraform_version: 1.1.9
       - name: terraform init
         run: |
-           terraform init
+          terraform init
       - name: terraform validate
         run: |
-           terraform validate
+          terraform validate
       - name: terraform plan
         run: |
-           terraform plan
+          terraform plan
       - name: terraform apply -auto-approve
         run: |
-           terraform apply -auto-approve
-      
+          terraform apply -auto-approve
