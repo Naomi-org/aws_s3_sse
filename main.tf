@@ -31,9 +31,7 @@ resource "aws_s3_bucket" "mybucket" {
     }
   }
 }
-provider "aws" {
-  region  = "us-east-1"
-}
+
 variable "tag" {
     description="give a tag to kms_key"
     type= string
